@@ -3,12 +3,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
-using Web.Infrastructure;
-using Application.Models;
+using Web.Infrastructure; 
 using NLog; 
 using System.Collections.Generic;
 using Web.Attributes;
-using Web.App.Infrastructure; 
+using Web.App.Infrastructure;
+using Application.Models; 
 
 namespace Application.Areas.Admin.Controllers
 {
@@ -20,7 +20,7 @@ namespace Application.Areas.Admin.Controllers
 
         public ConfigsController(ITokenHandler tokenStore) : base(tokenStore)
         {
-            _table = new Config();
+            _table = new Application.Models.Config();
             ViewBag.Table = _table;
         }
 
@@ -76,8 +76,8 @@ namespace Application.Areas.Admin.Controllers
         } 
         public static void RemovedCallback(String k, Object v, CacheItemRemovedReason r)
         {
-            var s = string.Format("Key:{0} Reason:{2} Object:{1} ", k, v.ToString(), r);
-            Log.Info(s);
+            //var s = string.Format("Key:{0} Reason:{2} Object:{1} ", k, v.ToString(), r);
+            //Log.Info(s);
         }
 
 

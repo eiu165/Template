@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
- 
+using Web.App.Controllers;
+using Web.App.Infastructure;
 using Web.Infrastructure; 
 
 namespace Web.App.Infrastructure
 {
-    public class CruddyController : Controller
+    public class CruddyController : ApplicationController
     {
         public CruddyController(ITokenHandler tokenStore) : base(tokenStore) { } 
 
