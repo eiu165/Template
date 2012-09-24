@@ -5,9 +5,15 @@
 <h2>Index</h2>
 
 
+<table id="UserList">
+    <tr><th>UserName</th></tr> 
+    <tr><th>UserName</th></tr>  
+</table>
+
 
 @section scripts {
-
-<script src="~/Areas/Admin/Views/Users/Index.js"></script>
+    
+    @Assets.Script("knockout-2.1.0.debug.js")
+    <script src="~/Areas/Admin/Views/Users/Index.js"></script>
 
 }
