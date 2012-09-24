@@ -10,7 +10,7 @@ namespace Web.Areas.Admin.Models
     public class Schema : DynamicModel
     {
         public Schema()
-            : base("ApplicationConnectionString", "[Schema]", "Id")
+            : base("DefaultConnection", "[Schema]", "Id")
         {
         }
     }

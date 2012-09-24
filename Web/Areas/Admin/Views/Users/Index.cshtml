@@ -7,13 +7,15 @@
 
 <table id="UserList">
     <tr><th>UserName</th></tr> 
-    <tr><th>UserName</th></tr>  
+    <tr data-bind="foreach: users(), visible: users().length > 0">
+        <td data-bind="text: UserName " >UserName</td>
+
+    </tr>  
 </table>
 
 
 @section scripts {
     
     @Assets.Script("knockout-2.1.0.debug.js")
-    <script src="~/Areas/Admin/Views/Users/Index.js"></script>
-
+    <script src="~/Areas/Admin/Scripts/Users/Index.js"></script> 
 }

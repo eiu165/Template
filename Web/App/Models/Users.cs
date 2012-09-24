@@ -9,27 +9,27 @@ namespace Web.App.Models
 
     public class UserProfile : DynamicModel
     {
-        public UserProfile() : base("ApplicationConnectionString", "UserProfile", "UserId") { } 
+        public UserProfile() : base("DefaultConnection", "UserProfile", "UserId") { } 
     }
 
     public class webpages_Membership : DynamicModel
     {
-        public webpages_Membership() : base("ApplicationConnectionString", "webpages_Membership", "UserId") { }
+        public webpages_Membership() : base("DefaultConnection", "webpages_Membership", "UserId") { }
     }
 
     public class webpages_OAuthMembership : DynamicModel
     {
-        public webpages_OAuthMembership() : base("ApplicationConnectionString", "webpages_OAuthMembership", "Provider", "ProviderUserId") { }
+        public webpages_OAuthMembership() : base("DefaultConnection", "webpages_OAuthMembership", "Provider", "ProviderUserId") { }
     }
 
     public class webpages_Roles : DynamicModel
     {
-        public webpages_Roles() : base("ApplicationConnectionString", "webpages_Roles", "RoleId") { }
+        public webpages_Roles() : base("DefaultConnection", "webpages_Roles", "RoleId") { }
     }
 
     public class webpages_UsersInRoles : DynamicModel
-    { 
-        public webpages_UsersInRoles() : base("ApplicationConnectionString", "webpages_UsersInRoles", "UserId", "RoleId")  { } 
+    {
+        public webpages_UsersInRoles() : base("DefaultConnection", "webpages_UsersInRoles", "UserId", "RoleId") { } 
     }
 
     /*

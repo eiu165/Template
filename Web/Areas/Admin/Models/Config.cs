@@ -6,7 +6,7 @@ namespace Application.Models
     public class Config : DynamicModel
     {
         public Config()
-            : base("ApplicationConnectionString", "Config", "ID")
+            : base("DefaultConnection", "Config", "ID")
         {
         }
     }

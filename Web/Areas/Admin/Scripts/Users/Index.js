@@ -4,7 +4,7 @@
 
 $(function () {
     function User(data) {
-        this.userName = ko.observable(data.userName);
+        this.UserName = ko.observable(data.UserName);
     }
 
     function UserList () {
@@ -13,8 +13,7 @@ $(function () {
         self.users = ko.observableArray([]);  
         self.MapData = function (allData) {
             var mappedItems = $.map(allData, function (item) { return new User(item); });
-            self.users(mappedItems);
-            self.configureUserAutocomplete();
+            self.users(mappedItems); 
         };  
         self.cancel = function () {
             self.load();

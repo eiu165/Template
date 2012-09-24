@@ -5,7 +5,8 @@ namespace Application.Models
 {
     public class Log : DynamicModel
     {
-        public Log() : base("ApplicationConnectionString", "Log", "ID")
+        public Log()
+            : base("DefaultConnection", "Log", "ID")
         {
         }
     }
