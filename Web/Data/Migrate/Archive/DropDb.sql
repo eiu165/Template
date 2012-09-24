@@ -1,6 +1,4 @@
-﻿
-
-
+﻿ 
 use Template
 
 
@@ -14,13 +12,11 @@ IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo]
 IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Pack]')		AND type IN ( N'U' ) )  drop table [Pack]
 IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Part]')		AND type IN ( N'U' ) )  drop table [Part]
 IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Accessory]')  AND type IN ( N'U' ) )  drop table [Accessory]
-
-
+ 
 GO  
 
 print ' ' 
 print 'finished dropping all tables'
 print ' '
-
-
+GO  
 
