@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.Mvc;
 
-namespace Web.Infrastructure {
+namespace Web.App.Infrastructure {
 
     public class FormsAuthTokenStore : ITokenHandler {
 

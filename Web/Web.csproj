@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dynamic">
+      <HintPath>..\packages\DynamicQuery.1.0\lib\35\Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="KendoGridBinder">
+      <HintPath>..\packages\KendoGridBinder.1.6\lib\net40\KendoGridBinder.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -156,11 +162,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Attributes\AuthorizeByRoleAttribute.cs" />
+    <Compile Include="App\Attributes\LogsRequestsAttribute.cs" />
+    <Compile Include="App\Attributes\OpenCloseDateAttribute.cs" />
+    <Compile Include="App\Attributes\RestHttpVerbFilter.cs" />
+    <Compile Include="App\Attributes\ShowMessageAttibute.cs" />
+    <Compile Include="App\Controllers\ApplicationController.cs" />
+    <Compile Include="App\Infastructure\CacheHelper.cs" />
+    <Compile Include="App\Infastructure\CruddyController.cs" />
+    <Compile Include="App\Infastructure\DateTimeHelper.cs" />
+    <Compile Include="App\Infastructure\ExpandoObjectConverter.cs" />
+    <Compile Include="App\Infastructure\FlashHelpers.cs" />
+    <Compile Include="App\Infastructure\FormsAuthTokenStore.cs" />
+    <Compile Include="App\Infastructure\Logging\ILogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\Infastructure\Logging\NLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\Infastructure\Massive.cs" />
+    <Compile Include="App\Models\Users.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConfigsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserRolesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -227,9 +258,11 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Data\Migrate\Archive\DropDb.sql" />
     <Content Include="Data\Migrate\Migration.sql" />
+    <Content Include="Dynamic Expressions.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Data\Migrate\Archive\Reset.bat" />
+    <Content Include="Areas\Admin\Views\Web.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -287,6 +320,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
