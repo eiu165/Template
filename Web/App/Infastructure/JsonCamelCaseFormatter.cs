@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
-using System.Text;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -43,7 +44,7 @@ namespace Web.App.Infastructure
             return true;
         }
 
-        protected override Task<object> OnReadFromStreamAsync(Type type,            Stream stream, HttpContentHeaders contentHeaders,            FormatterContext formatterContext)
+        protected override Task<object> OnReadFromStreamAsync(Type type,            Stream stream, HttpContentHeaders contentHeaders, System.Runtime.Serialization.Formatter formatterContext)
         {
             // Create a serializer
             var serializer = JsonSerializer.Create(jsonSerializerSettings);
@@ -60,8 +61,8 @@ namespace Web.App.Infastructure
 
         protected override Task OnWriteToStreamAsync(Type type, object value,
             Stream stream, HttpContentHeaders contentHeaders,
-            FormatterContext formatterContext,
-            TransportContext transportContext)
+            Formatter formatterContext,
+            System.Net.TransportContext transportContext)
         {
             // Create a serializer
             var serializer = JsonSerializer.Create(jsonSerializerSettings);
