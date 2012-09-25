@@ -24,6 +24,14 @@ namespace Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             GlobalConfig.CustomizeConfig(GlobalConfiguration.Configuration);
+
+            //var config = GlobalConfiguration.Configuration;
+
+            //// Replace the default JsonFormatter with our custom one
+            //var index = config.Formatters.IndexOf(config.Formatters.JsonFormatter);
+            //config.Formatters[index] = new JsonCamelCaseFormatter();
+
+
         }
     }
 }

@@ -46,6 +46,10 @@
       <HintPath>..\packages\KendoGridBinder.1.6\lib\net40\KendoGridBinder.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
@@ -53,6 +57,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -75,9 +80,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -174,9 +176,11 @@
     <Compile Include="App\Infastructure\CacheHelper.cs" />
     <Compile Include="App\Infastructure\CruddyController.cs" />
     <Compile Include="App\Infastructure\DateTimeHelper.cs" />
+    <Compile Include="App\Infastructure\DynamicJsonConverter.cs" />
     <Compile Include="App\Infastructure\ExpandoObjectConverter.cs" />
     <Compile Include="App\Infastructure\FlashHelpers.cs" />
     <Compile Include="App\Infastructure\FormsAuthTokenStore.cs" />
+    <Compile Include="App\Infastructure\JsonDataContractActionResult.cs" />
     <Compile Include="App\Infastructure\Logging\ILogger.cs">
       <SubType>Code</SubType>
     </Compile>
