@@ -215,7 +215,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Scripts\Users\Index.js" />
+    <Content Include="Areas\Admin\Scripts\Users\CoffeeScript1.js">
+      <DependentUpon>CoffeeScript1.coffee</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Scripts\Users\Index.js">
+      <DependentUpon>Index.coffee</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -281,6 +286,8 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="App_Code\Assets.cshtml" />
     <Content Include="App_Code\Form.cshtml" />
+    <Content Include="Areas\Admin\Scripts\Users\CoffeeScript1.coffee" />
+    <Content Include="Areas\Admin\Scripts\Users\Index.coffee" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
