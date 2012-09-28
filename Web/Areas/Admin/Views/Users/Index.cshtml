@@ -2,20 +2,50 @@
     ViewBag.Title = "Index";
 }
 
+
+@section head {
+    <style type="text/css">
+        body {background-color : #fefed3; }
+        #wrapper{margin:15px;} 
+        h4{color: #22a; padding:10px; font-size:1.3em; background:grey; border: #111 solid 3px; }
+        li{padding:4px;   font-family: times, serif; font-size:12pt;  }
+        li a {color: red}
+        span {font-weight: bold;}
+    </style>
+}​
+
 <h2>Index</h2>
 
-
-<table id="UserList">
-    <tr><th>UserName</th></tr> 
-    <tr data-bind="foreach: users(), visible: users().length > 0">
-        <td data-bind="text: UserName " >UserName</td>
-
-    </tr>  
-</table>
+<div id="wrapper">
+    <h4>People</h4>
+    <ul data-bind="foreach: people">
+        <li>
+            pos <span data-bind="text: $index"> </span>:
+            <span data-bind="text: name"> </span>
+            <a href="#" data-bind="click: $parent.removePerson">Remove</a>
+        </li>
+    </ul>
+    <button data-bind="click: addPerson">add</button>
+    <button data-bind="click: load">load</button> 
+    <button data-bind="click: save">save</button> 
+    <br />
+    <br />
+    <br />
+    <h4>vehicle </h4>
+    <ul data-bind="foreach: vehicle ">
+        <li>
+            pos <span data-bind="text: $index"> </span>:
+            <span data-bind="text: make"> </span> 
+        </li>
+    </ul>
+</div>
+​
 
 
 @section scripts {
+    <script src="https://raw.github.com/SteveSanderson/knockout.mapping/master/knockout.mapping.js"></script>  
     
-    @Assets.Script("knockout-2.1.0.debug.js")
+    <script src="https://github.com/SteveSanderson/knockout/raw/master/build/output/knockout-latest.debug.js"></script> 
+     
     <script src="~/Areas/Admin/Scripts/Users/Index.js"></script> 
 }

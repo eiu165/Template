@@ -1,36 +1,70 @@
 (function() {
-  var User, UserList;
+  var Person, PersonListViewModel, Vehicle;
 
-  User = function() {
-    var UserName;
-    return UserName = ko.observable(data.UserName);
+  Person = function(data) {
+    var name;
+    name = ko.observable(data.name);
+    return {
+      name: name
+    };
   };
 
-  ({
-    UserName: UserName
-  });
+  Vehicle = function(data) {
+    var make;
+    make = ko.observable(data.make);
+    return {
+      make: make
+    };
+  };
 
-  UserList = function() {
-    var MapData, cancel, load, users;
-    users = ko.observableArray([]);
-    MapData = function(allData) {
-      var mappedItems;
-      mappedItems = $.map(allData, function(item) {
-        return User(item);
+  PersonListViewModel = function() {
+    var addPerson, load, map, people, removePerson, save, vehicle;
+    people = ko.observableArray([]);
+    vehicle = ko.observableArray([]);
+    addPerson = function() {
+      return people.push({
+        name: "New at " + new Date()
       });
-      return users(mappedItems);
+    };
+    removePerson = function() {
+      return people.remove(this);
     };
     load = function() {
-      return $.getJSON("/Admin/Users/GetUsers", function(allData) {
-        return MapData(allData);
-      });
+      var allData;
+      console.log('load');
+      allData = '{"people" : [{"name":"a"},{"name":"b"},{"name":"c"}],  "vehicle" : [{"make":"x"},{"make":"z"}]}';
+      return map(allData);
     };
-    cancel = function() {
-      return load;
+    map = function(data) {
+      var mappedItems, mappedV;
+      mappedItems = $.map($.parseJSON(data).people, function(item) {
+        return Person(item);
+      });
+      people(mappedItems);
+      mappedV = $.map($.parseJSON(data).vehicle, function(item) {
+        return Vehicle(item);
+      });
+      return vehicle(mappedV);
+    };
+    save = function() {
+      return console.log('save');
     };
     return {
-      users: users
+      people: people,
+      vehicle: vehicle,
+      load: load,
+      save: save,
+      addPerson: addPerson,
+      removePerson: removePerson
     };
   };
+
+  $(function() {
+    var a;
+    a = new PersonListViewModel();
+    a.load();
+    ko.applyBindings(a);
+    return this;
+  });
 
 }).call(this);
