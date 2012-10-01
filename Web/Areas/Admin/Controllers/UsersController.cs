@@ -14,17 +14,6 @@ namespace Web.Areas.Admin.Controllers
     public class UsersController : Controller 
     {
 
-        /*
-        SELECT     UserProfile.UserId, UserProfile.UserName, webpages_OAuthMembership.UserId AS OAuth_UserId, webpages_OAuthMembership.Provider, 
-                      webpages_OAuthMembership.ProviderUserId, webpages_Membership.UserId AS Membership_UserId, webpages_Membership.CreateDate, 
-                      webpages_Membership.ConfirmationToken, webpages_Membership.IsConfirmed, webpages_Membership.LastPasswordFailureDate, 
-                      webpages_Membership.PasswordFailuresSinceLastSuccess, webpages_Membership.PasswordChangedDate, 
-                      webpages_Membership.PasswordVerificationTokenExpirationDate
-FROM         UserProfile LEFT OUTER JOIN
-                      webpages_OAuthMembership ON UserProfile.UserId = webpages_OAuthMembership.UserId LEFT OUTER JOIN
-                      webpages_Membership ON UserProfile.UserId = webpages_Membership.UserId
-         */
-
         public ActionResult Index()
         {
             return View();

@@ -19,6 +19,7 @@ UNIQUE NONCLUSTERED
 	[RoleName] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+Insert into webpages_Roles (  RoleName) values ( 'Dev'),( 'Admin'),( 'User')
 end
 GO
 
@@ -42,6 +43,23 @@ GO
 
 
 
+IF  not EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserProfile]') AND type in (N'U'))  
+begin 
+CREATE TABLE [dbo].[UserProfile](
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[UserName] [nvarchar](max) NULL,
+	[Email] [nvarchar](200) NULL 
+PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+INSERT INTO [UserProfile] ([UserName]) VALUES ('a'), ('b'), ('c')
+end
+GO
+ 
+
+
 
 IF  not EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[webpages_Membership]') AND type in (N'U'))  
 begin 
@@ -62,26 +80,17 @@ PRIMARY KEY CLUSTERED
 	[UserId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-end
+INSERT INTO [webpages_Membership] ( [UserId]  ,[IsConfirmed]  ,[Password],[PasswordSalt]  ) VALUES
+ ( 1,1, 'AB+Sytkyrv8MSXetbMqr9OM7PPU52Ooz/l6zpftGNt3kCavZnF7IOyIeZXtEdAh+Sw==', '') 
+,( 2,1, 'AB+Sytkyrv8MSXetbMqr9OM7PPU52Ooz/l6zpftGNt3kCavZnF7IOyIeZXtEdAh+Sw==', '')
+,( 3,1, 'AB+Sytkyrv8MSXetbMqr9OM7PPU52Ooz/l6zpftGNt3kCavZnF7IOyIeZXtEdAh+Sw==', '')
+end 
 GO
 
 
 
 
 
-
-IF  not EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserProfile]') AND type in (N'U'))  
-begin 
-CREATE TABLE [dbo].[UserProfile](
-	[UserId] [int] IDENTITY(1,1) NOT NULL,
-	[UserName] [nvarchar](max) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[UserId] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-end
-GO
 
 
 
@@ -106,8 +115,10 @@ ALTER TABLE [dbo].[webpages_UsersInRoles] CHECK CONSTRAINT [fk_RoleId]
 ALTER TABLE [dbo].[webpages_UsersInRoles]  WITH CHECK ADD  CONSTRAINT [fk_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[UserProfile] ([UserId]) 
 ALTER TABLE [dbo].[webpages_UsersInRoles] CHECK CONSTRAINT [fk_UserId]
-end
-go
+INSERT INTO [webpages_UsersInRoles] ([UserId] ,[RoleId])  VALUES (1, 1), (2, 2), (3, 3) 
+end 
+GO
+ 
 
 
 
