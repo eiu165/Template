@@ -30,21 +30,19 @@
       return people.remove(this);
     };
     load = function() {
-      var allData;
       console.log('load');
-      allData = '{"people" : [{"name":"a"},{"name":"b"},{"name":"c"}],  "vehicle" : [{"make":"x"},{"make":"z"}]}';
-      return map(allData);
+      return $.getJSON("/Users/GetUsers", function(allData) {
+        return map(allData);
+      });
     };
     map = function(data) {
-      var mappedItems, mappedV;
-      mappedItems = $.map($.parseJSON(data).people, function(item) {
+      debugger;
+      var mappedItems;
+      mappedItems = $.map(data.people, function(item) {
         return Person(item);
       });
-      people(mappedItems);
-      mappedV = $.map($.parseJSON(data).vehicle, function(item) {
-        return Vehicle(item);
-      });
-      return vehicle(mappedV);
+      debugger;
+      return people(mappedItems);
     };
     save = function() {
       return console.log('save');

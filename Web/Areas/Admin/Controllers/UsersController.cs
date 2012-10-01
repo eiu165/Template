@@ -51,9 +51,16 @@ FROM         UserProfile LEFT OUTER JOIN
 
         public ActionResult GetUsers()
         {
-            var l = GetUsersFromDb();
+            //var l = GetUsersFromDb();
+            object  people = new { people =  new[]
+            {
+                new  { name ="a" },
+                new  { name ="b" },
+                new  { name ="c" },
+                new  { name ="d" } 
+            } };
 
-            return DynamicJson( (l));
+            return DynamicJson(people);
           //return Json(new { title = "aaa", list = l }, JsonRequestBehavior.AllowGet);
          // return Json(l, JsonRequestBehavior.AllowGet);
           //return new JsonDataContractActionResult(  l );
