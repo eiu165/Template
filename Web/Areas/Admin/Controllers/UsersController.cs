@@ -34,7 +34,7 @@ FROM         UserProfile LEFT OUTER JOIN
 
         private IEnumerable<dynamic> GetUsersFromDb()
         {
-            var articleUrl = Request.UrlReferrer.Segments.Last();
+            //var articleUrl = Request.UrlReferrer.Segments.Last();
             dynamic table = new UserProfile();
             var query = @"
         SELECT     UserProfile.UserId, UserProfile.UserName, webpages_OAuthMembership.UserId AS OAuth_UserId, webpages_OAuthMembership.Provider, 
@@ -50,26 +50,17 @@ FROM         UserProfile LEFT OUTER JOIN
         }
 
         public ActionResult GetUsers()
-        {
-            //var l = GetUsersFromDb();
-            object  people = new { people =  new[]
-            {
-                new  { name ="a" },
-                new  { name ="b" },
-                new  { name ="c" },
-                new  { name ="d" } 
-            } };
-
-            return DynamicJson(people);
-          //return Json(new { title = "aaa", list = l }, JsonRequestBehavior.AllowGet);
-         // return Json(l, JsonRequestBehavior.AllowGet);
-          //return new JsonDataContractActionResult(  l );
-          //{ data = l };
-          //return new Newtonsoft.Json.
-            /*JavaScriptSerializer jss = new JavaScriptSerializer();
-            jss.RegisterConverters(new JavaScriptConverter[] { new DynamicJsonConverter() });
- 
-            dynamic glossaryEntry = jss.Deserialize(json, typeof(object)) as dynamic;*/
+        { 
+            var list = GetUsersFromDb().Select(x => new { name = x.UserName, Id = x.UserId });
+            object  people = new { people =  list }; 
+            //object  people = new { people =  new[]
+            //{
+            //    new  { name ="a" },
+            //    new  { name ="b" },
+            //    new  { name ="c" },
+            //    new  { name ="d" } 
+            //} };  
+            return DynamicJson(people);  
         }
 
 

@@ -36,12 +36,10 @@
       });
     };
     map = function(data) {
-      debugger;
       var mappedItems;
       mappedItems = $.map(data.people, function(item) {
         return Person(item);
       });
-      debugger;
       return people(mappedItems);
     };
     save = function() {

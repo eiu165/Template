@@ -15,12 +15,10 @@ PersonListViewModel =->
         people.remove(this)
     load = -> 
         console.log 'load' 
-        $.getJSON("/Users/GetUsers",(allData)->map allData) 
+        $.getJSON("/Users/GetUsers",(allData) -> map allData ) 
         #map $.parseJSON('{"people" : [{"name":"a"},{"name":"b"},{"name":"c"}], "vehicle" : [{"make":"x"},{"make":"z"}]}' ) 
-    map = (data) -> 
-        debugger
-        mappedItems = $.map( data.people, (item)-> Person(item) )
-        debugger
+    map = (data) ->  
+        mappedItems = $.map( data.people, (item)-> Person(item) ) 
         people(mappedItems)  
         #mappedV= $.map($.parseJSON(data).vehicle, (item)-> Vehicle(item) )
         #vehicle (mappedV)  
