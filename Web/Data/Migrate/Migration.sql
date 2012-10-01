@@ -57,7 +57,12 @@ PRIMARY KEY CLUSTERED
 INSERT INTO [UserProfile] ([UserName]) VALUES ('a'), ('b'), ('c')
 end
 GO
- 
+  
+ if not Exists(select * from sys.columns where Name = N'City' and Object_ID = Object_ID(N'UserProfile'))
+ begin    
+	alter table [UserProfile] Add   [City] [nvarchar](200) NULL 
+ end
+
 
 
 
