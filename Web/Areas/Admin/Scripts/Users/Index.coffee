@@ -23,7 +23,8 @@ PersonListViewModel =->
         #mappedV= $.map($.parseJSON(data).vehicle, (item)-> Vehicle(item) )
         #vehicle (mappedV)  
     save =->
-        console.log 'save' 
+        console.log 'save'  
+        $.post("/Users/SaveUsers", {"people" : [{"name":"a"},{"name":"b"},{"name":"c"}], "vehicle" : [{"make":"x"},{"make":"z"}]} , -> alert 'aaa')
     people:people    
     vehicle :vehicle 
     load:load   

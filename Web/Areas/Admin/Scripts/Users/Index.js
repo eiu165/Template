@@ -43,7 +43,27 @@
       return people(mappedItems);
     };
     save = function() {
-      return console.log('save');
+      console.log('save');
+      return $.post("/Users/SaveUsers", {
+        "people": [
+          {
+            "name": "a"
+          }, {
+            "name": "b"
+          }, {
+            "name": "c"
+          }
+        ],
+        "vehicle": [
+          {
+            "make": "x"
+          }, {
+            "make": "z"
+          }
+        ]
+      }, function() {
+        return alert('aaa');
+      });
     };
     return {
       people: people,

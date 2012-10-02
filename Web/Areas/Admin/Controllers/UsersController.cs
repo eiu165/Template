@@ -52,6 +52,17 @@ FROM         UserProfile LEFT OUTER JOIN
             return DynamicJson(people);  
         }
 
+        [HttpPost]
+        public ActionResult SaveUsers(string jsonData)
+        {
+            bool result = true;
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            //List<PersonData> personData;
+            //personData = jss.Deserialize<List<PersonData>>(jsonData); 
+            return Content(result.ToString());
+        }
+
+
 
         public ActionResult DynamicJson(dynamic content)
         {
