@@ -11,7 +11,7 @@ using Web.Infrastructure;
 
 namespace Web.Areas.Admin.Controllers
 {
-    public class UsersController : Controller 
+    public class UsersController : ApplicationController 
     {
 
         public ActionResult Index()
@@ -53,7 +53,7 @@ FROM         UserProfile LEFT OUTER JOIN
         }
 
         [HttpPost]
-        public ActionResult SaveUsers(string jsonData)
+        public ActionResult SaveUsers( FormCollection jsonData)
         {
             bool result = true;
             JavaScriptSerializer jss = new JavaScriptSerializer();
@@ -63,15 +63,6 @@ FROM         UserProfile LEFT OUTER JOIN
         }
 
 
-
-        public ActionResult DynamicJson(dynamic content)
-        {
-            var serializer = new JavaScriptSerializer();
-            serializer.RegisterConverters(new JavaScriptConverter[] { new ExpandoObjectConverter() });
-            var json = serializer.Serialize(content);
-            Response.ContentType = "application/json";
-            return Content(json);
-        }
 
     }
 }

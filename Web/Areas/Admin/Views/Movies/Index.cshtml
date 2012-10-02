@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+@section head {
+    <style type="text/css">
+        /*body {background-color : #fefed3; }*/
+        #wrapper{margin:15px;} 
+        h4{color: #22a; padding:10px; font-size:1.3em; background:grey; border: #111 solid 3px; }
+        li{padding:4px;   font-family: times, serif; font-size:12pt;  }
+        li a {color: red}
+        span {font-weight: bold;}
+    </style>
+}​
+
+<h2>Index</h2>
+
+<div id="wrapper">
+    <h4>movie</h4>
+    <ul data-bind="foreach: movies">
+        <li>
+            pos <span data-bind="text: $index"> </span>:
+            <span data-bind="text: name"> </span> 
+            <a href="#" data-bind="click: $parent.removeMovie">Remove</a>
+        </li>
+    </ul>
+    <button data-bind="click: addMovie">add</button>
+    <button data-bind="click: load">load</button> 
+    <button data-bind="click: save">save</button> 
+    <br />
+    <br /> 
+</div>
+​
+
+
+@section scripts { 
+     
+    <script src="~/Scripts/knockout-2.1.0.debug.js"></script>
+    <script src="~/Areas/Admin/Scripts/Movies/Index.js"></script> 
+}

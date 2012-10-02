@@ -12,6 +12,7 @@ IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo]
 IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Pack]')		AND type IN ( N'U' ) )  drop table [Pack]
 IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Part]')		AND type IN ( N'U' ) )  drop table [Part]
 IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Accessory]')  AND type IN ( N'U' ) )  drop table [Accessory]
+IF EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Movie]')  AND type IN ( N'U' ) )  drop table [Movie]
 
 
  

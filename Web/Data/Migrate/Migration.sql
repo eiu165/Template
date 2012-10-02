@@ -246,3 +246,19 @@ GO
 
 
 
+
+
+IF not  EXISTS ( SELECT  * FROM    sys.objects  WHERE   object_id = OBJECT_ID(N'[dbo].[Movie]')  AND type IN ( N'U' ) )  
+begin
+print 'creating Movie '  
+CREATE TABLE [dbo].[Movie](
+	[Id] [int] IDENTITY(1,1) NOT NULL  PRIMARY KEY  CLUSTERED (	[ID] ASC) ON [PRIMARY],  
+	[Name] [nvarchar](50) NULL,  
+	[Number] [nvarchar](50) NULL,  
+	[UpdatedAt] [datetime]  not null default(GETUTCDATE()) 
+	) ON [PRIMARY]   
+insert into [Movie] ([Name]) values ('GhostBusters'),('Blues Brothers'),('The Big Lebowski'),('Pulp Fiction'),('Star Wars'),('Batman'), ('21 Jumpstreet')
+end
+GO
+
+

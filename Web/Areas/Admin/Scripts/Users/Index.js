@@ -44,7 +44,7 @@
     };
     save = function() {
       console.log('save');
-      return $.post("/Users/SaveUsers", {
+      return $.post("Users/SaveUsers", {
         "people": [
           {
             "name": "a"
@@ -52,13 +52,6 @@
             "name": "b"
           }, {
             "name": "c"
-          }
-        ],
-        "vehicle": [
-          {
-            "make": "x"
-          }, {
-            "make": "z"
           }
         ]
       }, function() {

@@ -24,7 +24,7 @@ PersonListViewModel =->
         #vehicle (mappedV)  
     save =->
         console.log 'save'  
-        $.post("/Users/SaveUsers", {"people" : [{"name":"a"},{"name":"b"},{"name":"c"}], "vehicle" : [{"make":"x"},{"make":"z"}]} , -> alert 'aaa')
+        $.post("Users/SaveUsers", {"people" : [{"name":"a"},{"name":"b"},{"name":"c"}]} , -> alert 'aaa')
     people:people    
     vehicle :vehicle 
     load:load   

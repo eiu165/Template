@@ -57,6 +57,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Json">
+      <HintPath>..\packages\System.Json.4.0.20126.16343\lib\net40\System.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -149,10 +152,6 @@
       <Private>True</Private>
       <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
-    </Reference>
     <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
@@ -197,12 +196,15 @@
     <Compile Include="App_Start\ValidationActionFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ApplicationController.cs" />
     <Compile Include="Areas\Admin\Controllers\ConfigsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MoviesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserRolesController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\Config.cs" />
     <Compile Include="Areas\Admin\Models\Log.cs" />
+    <Compile Include="Areas\Admin\Models\Movie.cs" />
     <Compile Include="Areas\Admin\Models\Schema.cs" />
     <Compile Include="Areas\Admin\Models\Session.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -215,6 +217,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\Movies\Index.js">
+      <DependentUpon>Index.coffee</DependentUpon>
+    </Content>
     <Content Include="Areas\Admin\Scripts\Users\CoffeeScript1.js">
       <DependentUpon>CoffeeScript1.coffee</DependentUpon>
     </Content>
@@ -288,6 +293,8 @@
     <Content Include="App_Code\Form.cshtml" />
     <Content Include="Areas\Admin\Scripts\Users\CoffeeScript1.coffee" />
     <Content Include="Areas\Admin\Scripts\Users\Index.coffee" />
+    <Content Include="Areas\Admin\Views\Movies\Index.cshtml" />
+    <Content Include="Areas\Admin\Scripts\Movies\Index.coffee" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
