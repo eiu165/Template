@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div id="a">CLIKC HERE</div>
+
+<div id="b">CLIKC HERE</div>
+
+
+@section scripts{
+<script type="text/javascript">
+     
+    $(function () { 
+        $("#a").click(function () { 
+            var album = {
+                AlbumName: "PowerAge",
+                Entered: "1/1/1977"
+            }  
+
+            $.ajax(
+            {
+                url: "Albums/PostAlbum",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ Album: album  }),
+                success: function (result) {
+                    alert(result.Result);
+                }
+            });
+        });
+        
+        $("#b").click(function () { 
+            $.ajax(
+            {
+                url: "Albums/GetAlbum",
+                type: "GET", 
+                success: function (result) {
+                    alert(result.Result);
+                } 
+            });
+        });
+
+    });
+
+</script>
+}

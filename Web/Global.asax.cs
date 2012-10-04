@@ -26,6 +26,7 @@ namespace Web
             AuthConfig.RegisterAuth();
             GlobalConfig.CustomizeConfig(GlobalConfiguration.Configuration);
 
+            ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
             //var config = GlobalConfiguration.Configuration;
 
             //// Replace the default JsonFormatter with our custom one

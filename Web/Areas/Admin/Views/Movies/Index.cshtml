@@ -20,9 +20,9 @@
     <h4>movie</h4>
     <ul data-bind="foreach: movies">
         <li>
+            <a href="#" data-bind="click: $parent.removeMovie">Remove</a>
             pos <span data-bind="text: $index"> </span>:
             <span data-bind="text: name"> </span> 
-            <a href="#" data-bind="click: $parent.removeMovie">Remove</a>
         </li>
     </ul>
     <button data-bind="click: addMovie">add</button>
