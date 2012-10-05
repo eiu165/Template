@@ -24,7 +24,25 @@ namespace Web.Controllers
             //var user = juser.ToObject<User>();
 
             //return String.Format("{0} {1} {2}", album.AlbumName, user.Name, token);
-        } 
+        }
+
+        //[HttpGet]
+        //public JObject Get()
+        //{  
+        //    //object people = new { people = GetUsersFromDb().Select(x => new { name = x.UserName, Id = x.UserId }) };
+        //    object people = new
+        //    {
+        //        people = new[]
+        //        {
+        //            new  { name ="a" },
+        //            new  { name ="b" },
+        //            new  { name ="c" },
+        //            new  { name ="d" } 
+        //        }
+        //    };  
+        //    return  people;  
+        //} 
+
     } 
 
 }
